@@ -232,3 +232,36 @@ section {
 .intro_sec .h_bg-image {
     filter: saturate(0.5);
 }
+
+
+/* Wrapper to Center the Typewriter */
+.wrapper {
+	/* width: 100vw;
+	height: 100vh; */
+    margin-bottom: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.centeredBox {
+    display: ruby;
+	/* width: 100%; */
+	/* text-align: center; */
+}
+
+/* The Typewriter */
+
+#typewriter > div > h1{
+	color: lightblue;
+    font-weight: bold;
+    margin-bottom: 0;
+    font-size: large;
+}
+
+
+
+.cursor {
+	border-left: 4px solid lightblue;
+}
+

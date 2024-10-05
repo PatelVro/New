@@ -4,6 +4,7 @@
 
 .table td,
 .table th {
+    background-color: rgba(0, 0, 0, 0);
     color: var(--text-color);
 }
 
@@ -98,3 +99,5 @@
         transform: translateZ(0);
     }
 }
+
+

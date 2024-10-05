@@ -1,9 +1,10 @@
 import React from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import Typewriter from "typewriter-effect";
+// import Typewriter from "typewriter-effect";
 import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
+import Typewriter from "../../components/typewriter/typewriter";
 
 export const Home = () => {
   return (
@@ -22,8 +23,7 @@ export const Home = () => {
           <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
             <div className="align-self-center ">
               <div className="intro mx-auto">
-                <h2 className="mb-1x">{introdata.title}</h2>
-                <h1 className="fluidz-48 mb-1x">
+                {/* <h1 className="fluidz-48 mb-1x">
                   <Typewriter
                     options={{
                       strings: [
@@ -36,8 +36,47 @@ export const Home = () => {
                       deleteSpeed: 10,
                     }}
                   />
-                </h1>
-                <p className="mb-1x">{introdata.description}</p>
+                </h1> */}
+                <h2 className="mb-1x">{introdata.title}</h2>
+                {/* <p className="fluidz-48 mb-1x">
+                  {introdata.description.first}
+                  <Typewriter
+                    options={{
+                      strings: [
+                        introdata.service.first,
+                        introdata.service.second,
+                        introdata.service.third,
+                      ],
+                      autoStart: true,
+                      loop: true,
+                      deleteSpeed: 10,
+                    }}
+                    
+                  />
+                  {introdata.description.second}
+                </p>
+                 */}
+                <div class="wrapper">
+                  <div class="centeredBox">
+                  {introdata.description.first}
+                    <span id="typewriter" style={{ color: 'lightblue', fontWeight: 'bold',  }}>
+                    <Typewriter
+                    options={{
+                      strings: [
+                        introdata.service.first,
+                        introdata.service.second,
+                        introdata.service.third,
+                      ],
+                      autoStart: true,
+                      loop: true,
+                      deleteSpeed: 5,
+                    }}
+                  />
+                  </span>
+                    <span class="cursor"></span>
+                    {introdata.description.second}
+                  </div>
+                </div>  
                 <div className="intro_btn-action pb-5">
                   <Link to="/portfolio" className="text_2">
                     <div id="button_p" className="ac_btn btn ">
@@ -61,6 +100,7 @@ export const Home = () => {
           </div>
         </div>
       </section>
+      
     </HelmetProvider>
   );
 };
