@@ -64,7 +64,6 @@ const Headermain = () => {
       <div className="br-bottom"></div>
       <div className="br-left"></div>
       <div className="br-right"></div>
-      
     </>
   );
 };

@@ -31,10 +31,11 @@ section {
 }
 
 .intro_sec {
-    height: calc(100vh - 60px);
-    min-height: 700px;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     margin-top: -60px;
+    padding: 60px 0;
 }
 
 @media (max-width:991.98px) {
@@ -94,8 +95,35 @@ section {
 .intro_sec .h_bg-image {
     background-size: cover;
     background-position: center;
-    min-height: 700px;
+    min-height: 400px;  /* Reduced from 700px */
     position: relative;
+    width: 400px;  /* Added width */
+    height: 400px;  /* Added height */
+    border-radius: 50%;  /* Make it circular */
+    margin: 0 auto;  /* Center the image */
+    overflow: visible;  /* Changed from hidden to visible */
+}
+
+.intro_sec .h_bg-image::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 4px solid transparent;
+    border-color: var(--text-color-3);
+    border-radius: 50%;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .ac_btn {
@@ -208,6 +236,22 @@ section {
     }
 }
 
+/* @media (max-width:430px) {
+    .intro_sec .h_bg-image {
+        height: 600px;
+        min-height: 75vh;
+        margin-bottom: 30px;
+    }
+    .intro_sec .h_bg-image .block {
+        top: unset;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+} */
+
 .intro_sec .h_bg-image .block .wrap-icon {
     font-size: 40px;
     color: var(--text-color);
@@ -253,7 +297,7 @@ section {
 /* The Typewriter */
 
 #typewriter > div > h1{
-	color: lightblue;
+	color: var(--text-color-3);
     font-weight: bold;
     margin-bottom: 0;
     font-size: large;
@@ -265,3 +309,161 @@ section {
 	border-left: 4px solid lightblue;
 }
 
+.circle-image {
+    width: 100%;  /* Changed to 100% to fill the parent */
+    height: 100%;  /* Changed to 100% to fill the parent */
+    border-radius: 50%;   
+    background-size: cover;  
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: relative;
+    z-index: 1;  /* Ensure the image is above the rotating border */
+}
+/* 
+.loader-wrapper {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  } */
+
+  .loader{
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    width: 450px !important;
+    height: 450px !important;
+    border-radius: 30%;
+    perspective: 800px;
+    transform: translate(-50%, -50%);  /* Center the loader */
+    z-index: 0;  /* Ensure the loader is behind the image */
+  }
+
+  @media (max-width: 1024px) {
+    .intro_sec {
+        flex-direction: row;
+        padding: 30px 0;
+    }
+
+    .intro_sec .text,
+    .intro_sec .h_bg-image {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .intro_sec .h_bg-image {
+        width: 300px;
+        height: 300px;
+        min-height: 300px;
+        margin-bottom: 75px;
+    }
+
+    .intro_sec .text h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .intro_sec .text h3 {
+        font-size: 14px;
+    }
+
+    .ac_btn {
+        padding: 3px 15px;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .loader {
+        width: 350px !important;
+        height: 350px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro_sec {
+        flex-direction: column;
+        
+    }
+
+    .intro_sec .text,
+    .intro_sec .h_bg-image {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .intro_sec .h_bg-image {
+        width: 300px;
+        height: 300px;
+        min-height: 300px;
+        margin-bottom: 75px;
+    }
+
+    .intro_sec .text h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .intro_sec .text h3 {
+        font-size: 14px;
+    }
+
+    .ac_btn {
+        padding: 3px 15px;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .loader {
+        width: 350px !important;
+        height: 350px !important;
+    }
+
+    .intro_btn-action {
+        padding-bottom: 0rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro_sec {
+        padding: 1px 0;
+        min-height: 60vh !important;
+    }
+
+
+    .intro_sec .h_bg-image {
+        width: 220px;
+        height: 220px;
+        min-height: 220px;
+        margin-top: 4rem;
+    }
+
+    .intro_sec .text h1 {
+        font-size: 20px;
+    }
+
+    .intro_sec .text h3 {
+        font-size: 1px;
+    }
+
+    .ac_btn {
+        padding: 2px 12px;
+        margin-right: 8px;
+        font-size: 12px;
+    }
+
+    .loader {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .intro_btn-action {
+        padding-bottom: 0rem !important;
+    }
+}
